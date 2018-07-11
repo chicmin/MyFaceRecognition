@@ -16,7 +16,6 @@ All the above steps should be in one function called process_image()
 # TODO: Import OpenCV
 import cv2
 import numpy as np
-
 # TODO: Edit this function
 def process_image():
     return
@@ -32,6 +31,10 @@ def main():
     img=cv2.imread('geisel.jpg',0)
     size = img.shape
     print(size)
+    small = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+    cv2.imshow('image', small)
+    cv2.waitKey(0)
+    cv2.destroyAllWindow()
     return
 
 
