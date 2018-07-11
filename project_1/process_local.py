@@ -14,7 +14,8 @@ All the above steps should be in one function called process_image()
 """
 
 # TODO: Import OpenCV
-
+import cv2
+import numpy as np
 
 # TODO: Edit this function
 def process_image():
@@ -28,6 +29,9 @@ def hello_world():
 # TODO: Call process_image function.
 def main():
     hello_world()
+    img=cv2.imread('geisel.jpg',0)
+    size = img.shape
+    print(size)
     return
 
 
