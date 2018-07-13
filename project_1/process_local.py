@@ -15,9 +15,17 @@ All the above steps should be in one function called process_image()
 
 # TODO: Import OpenCV
 import cv2
-import numpy as np
 # TODO: Edit this function
 def process_image():
+    img=cv2.imread('geisel.jpg',0)
+    size = img.shape
+    small = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+    height, width  = small.shape
+    cv2.rectangle(small, (width/2-50,height/2-50) , (width/2+50, height/2+50), (255,255,255), 4)
+    cv2.imshow('image', small)
+    cv2.waitKey(0)
+    cv2.imwrite('new geisel.jpg',small)
+    cv2.destroyAllWindow()
     return
 
 # Just prints 'Hello World! to screen.
@@ -28,13 +36,7 @@ def hello_world():
 # TODO: Call process_image function.
 def main():
     hello_world()
-    img=cv2.imread('geisel.jpg',0)
-    size = img.shape
-    print(size)
-    small = cv2.resize(img, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
-    cv2.imshow('image', small)
-    cv2.waitKey(0)
-    cv2.destroyAllWindow()
+    process_image()
     return
 
 
